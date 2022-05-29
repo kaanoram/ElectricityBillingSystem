@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import java.awt.Font;
 import javax.swing.JFrame;
-import javax.swing.border.Border;
+
 
 public class About extends JFrame implements ActionListener {
 
