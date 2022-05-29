@@ -101,8 +101,7 @@ public class Login extends JFrame implements ActionListener{
                     tf1.setText("");
                     pf2.setText("");
                 }
-            }catch(Exception e){
-                e.printStackTrace();
+            }catch(HeadlessException | SQLException e){
                 System.out.println("error: "+e);
             }
         }else if(ae.getSource() == b2){
