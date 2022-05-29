@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
 
 public class Signup extends JFrame implements ActionListener{
     JPanel p1;
@@ -78,17 +79,15 @@ public class Signup extends JFrame implements ActionListener{
         c1.setBounds(260, 170, 150, 20);
         p1.add(c1);
         
-        c1.addItemListener(new ItemListener(){
-           public void itemStateChanged(ItemEvent ae){
-               String user = c1.getSelectedItem();
-               if(user.equals("Customer")){
-                   l5.setVisible(true);
-                   t4.setVisible(true);
-               }else{
-                   l5.setVisible(false);
-                   t4.setVisible(false);
-               }
-           } 
+        c1.addItemListener((ItemEvent ae) -> {
+            String user = c1.getSelectedItem();
+            if(user.equals("Customer")){
+                l5.setVisible(true);
+                t4.setVisible(true);
+            }else{
+                l5.setVisible(false);
+                t4.setVisible(false);
+            } 
         });
         
         
@@ -135,7 +134,7 @@ public class Signup extends JFrame implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Account Created Successfully");
                 this.setVisible(false);
                 new Login().setVisible(true);
-            }catch(Exception e){
+            }catch(HeadlessException | SQLException e){
                 System.out.println(e);
             }
         } else if(ae.getSource()== b2){
