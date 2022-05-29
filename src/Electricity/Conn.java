@@ -9,7 +9,7 @@ public class Conn {
     public Conn() {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            c = DriverManager.getConnection("jdbc:mysql:///ebs", "root", "Ko!2192050");
+            c = DriverManager.getConnection("jdbc:mysql:///ebs", "root", System.getenv("DB_PASSWORD"));
             s = c.createStatement();
         }catch (ClassNotFoundException | SQLException e){
             System.out.println(e);
